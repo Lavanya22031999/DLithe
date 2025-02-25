@@ -4,45 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+        }
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+            flex-basis: 30%;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 15px;
+        }
+        .content {
+            flex-basis: 70%;
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-badge {
+            background-color: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact-links {
+            margin-top: 10px;
+        }
+        .contact-links a {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h2>My Portfolio</h2>
+        <h1>My Portfolio</h1>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate and driven individual with a keen interest in design, and coding. With a background in engineering and growing expertise in UI design, I am eager to explore innovative ways to create engaging visual content and interactive experiences.</p>
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Design: UI/UX Design, Figma</li>
-            <li>Coding: HTML, CSS, Python, OpenCV</li>
+    <div class="container">
+        <div class="sidebar">
             
-        </ul>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-column">
+            <h3>Lavanya N R</h3>
+            <p>Engineering Student</p>
+            <div class="contact-links">
+                <a href="mailto:nrlavanya795@gmail.com">Email: nrlavanya795@gmail.com</a>
+                <a href="https://github.com/lavanya-nr" target="_blank">GitHub: github.com/lavanya-nr</a>
+                <a href="https://linkedin.com/in/lavanya-n-r" target="_blank">LinkedIn: linkedin.com/in/lavanya-n-r</a>
+            </div>
+        </div>
+        <div class="content">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>I am a passionate and driven individual with a keen interest in design and coding. With a background in engineering and growing expertise in UI design, I am eager to explore innovative ways to create engaging visual content and interactive experiences.</p>
+            </section>
+            <section id="education">
+                <h2>Education</h2>
+                <p>Bachelor of Engineering in information science|pes institute of technology and management</p>
+            </section>
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-badge">UI/UX Design</div>
+                    <div class="skill-badge">Figma</div>
+                    <div class="skill-badge">HTML</div>
+                    <div class="skill-badge">CSS</div>
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">OpenCV</div>
+                </div>
+            </section>
+            <section id="projects">
+                <h2>Projects</h2>
                 <h3>Academic Projects</h3>
                 <ul>
                     <li>Hand Gesture Recognition for PowerPoint - Developed a machine learning-based system to control PowerPoint presentations using hand gestures.</li>
                     <li>Figma UI Design - Crafted user-friendly interfaces for web and mobile applications using Figma.</li>
                 </ul>
-            </div>
-            <div class="project-column">
                 <h3>Other Projects</h3>
                 <ul>
                     <li><a href="file:///C:/Users/Lavanya%20N%20R/Desktop/Dlithe/TRAVEL%20AGENCY/Travel%20Agency.html" target="_blank">Travel Agency</a> - Designed and developed a travel agency website with booking and destination details.</li>
-                    <li><a href="file:///C:/Users/Lavanya%20N%20R/Desktop/Dlithe/NEWS%20PAPER/News%20Paper.html" target="_blank">News paper</a> - Created an online newspaper layout with sections for headlines, articles, and advertisements.</li>
+                    <li><a href="file:///C:/Users/Lavanya%20N%20R/Desktop/Dlithe/NEWS%20PAPER/News%20Paper.html" target="_blank">News Paper</a> - Created an online newspaper layout with sections for headlines, articles, and advertisements.</li>
                 </ul>
-            </div>
+            </section>
         </div>
-    </section>
-    <footer>
-        <p>Contact: nrlavanya795@gmail.com | LinkedIn: linkedin.com/in/lavanya-n-r</p>
-    </footer>
+    </div>
 </body>
 </html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f8ff; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 50px auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
+        h1 { text-align: center; color: #333; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; margin-top: 20px; cursor: pointer; border-radius: 4px; width: 100%; }
+        button:hover { background-color: #45a049; }
+        .error { color: red; font-size: 14px; }
+        .popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #4CAF50; color: white; padding: 20px; border-radius: 8px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Agency Registration</h1>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name">
+            <span class="error" id="nameError"></span>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1">
+            <span class="error" id="ageError"></span>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email">
+            <span class="error" id="emailError"></span>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+            <span class="error" id="phoneError"></span>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4"></textarea>
+            <span class="error" id="addressError"></span>
+
+            <label for="source">Source:</label>
+            <input type="text" id="source" name="source">
+            <span class="error" id="sourceError"></span>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination">
+            <span class="error" id="destinationError"></span>
+
+            <label for="date">Date of Travel:</label>
+            <input type="date" id="date" name="date">
+            <span class="error" id="dateError"></span>
+
+            <button type="button" onclick="validateForm()">Register</button>
+        </form>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup">🎉 Registration Successful!</div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let address = document.getElementById("address").value;
+            let source = document.getElementById("source").value;
+            let destination = document.getElementById("destination").value;
+            let date = document.getElementById("date").value;
+            
+            let today = new Date();
+            let selectedDate = new Date(date);
+            today.setHours(0, 0, 0, 0); // Remove time part for accurate comparison
+            
+            document.getElementById("nameError").innerText = name ? "" : "Name is required!";
+            document.getElementById("ageError").innerText = age ? "" : "Age is required!";
+            document.getElementById("emailError").innerText = email.includes("@") ? "" : "Enter a valid email!";
+            document.getElementById("phoneError").innerText = phone.length >= 10 ? "" : "Enter a valid phone number!";
+            document.getElementById("addressError").innerText = address ? "" : "Address is required!";
+            document.getElementById("sourceError").innerText = source ? "" : "Source is required!";
+            document.getElementById("destinationError").innerText = destination ? "" : "Destination is required!";
+            
+            if (!date) {
+                document.getElementById("dateError").innerText = "Date is required!";
+                isValid = false;
+            } else if (selectedDate < today) {
+                document.getElementById("dateError").innerText = "Travel date must be in the future!";
+                isValid = false;
+            } else {
+                document.getElementById("dateError").innerText = "";
+            }
+
+            if (!name || !age || !email.includes("@") || phone.length < 10 || !address || !source || !destination || !date || selectedDate < today) {
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Show success popup
+                let popup = document.getElementById("successPopup");
+                popup.style.display = "block";
+
+                // Hide popup and redirect after 2 seconds
+                setTimeout(() => {
+                    popup.style.display = "none";
+                    window.location.href = "Travel Agency.html"; // Redirect to the main page
+                }, 2000);
+            }
+        }
+
+        // Prevent selecting past dates in the date input field
+        document.addEventListener("DOMContentLoaded", () => {
+            let today = new Date().toISOString().split("T")[0];
+            document.getElementById("date").setAttribute("min", today);
+        });
+    </script>
+</body>
+</html>

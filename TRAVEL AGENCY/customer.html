@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .details {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e6ffe6;
+            border: 1px solid #b3ffb3;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Agency Registration</h1>
+        <form id="registrationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="source">Source:</label>
+            <input type="text" id="source" name="source" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="date">Date of Travel:</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" onclick="showDetails()">Register</button>
+        </form>
+
+        <div id="details" class="details" style="display:none;">
+            <h2>Registration Details</h2>
+            <p><strong>Full Name:</strong> <span id="detailName"></span></p>
+            <p><strong>Email Address:</strong> <span id="detailEmail"></span></p>
+            <p><strong>Phone Number:</strong> <span id="detailPhone"></span></p>
+            <p><strong>Address:</strong> <span id="detailAddress"></span></p>
+            <p><strong>Source:</strong> <span id="detailSource"></span></p>
+            <p><strong>Destination:</strong> <span id="detailDestination"></span></p>
+            <p><strong>Date of Travel:</strong> <span id="detailDate"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function showDetails() {
+            document.getElementById('detailName').innerText = document.getElementById('name').value;
+            document.getElementById('detailEmail').innerText = document.getElementById('email').value;
+            document.getElementById('detailPhone').innerText = document.getElementById('phone').value;
+            document.getElementById('detailAddress').innerText = document.getElementById('address').value;
+            document.getElementById('detailSource').innerText = document.getElementById('source').value;
+            document.getElementById('detailDestination').innerText = document.getElementById('destination').value;
+            document.getElementById('detailDate').innerText = document.getElementById('date').value;
+
+            document.getElementById('details').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
